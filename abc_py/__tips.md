@@ -55,3 +55,36 @@ for c in S :
     ans += chr(ord('A') + a)
 print(ans)
 ```
+
+### リスト内包表記
+
+```python
+squares = [i**2 for i in range(5)]
+print(squares)
+# [0, 1, 4, 9, 16]
+```
+
+* 三項演算子とリスト内包表記
+```python
+odd_even = ['odd' if i % 2 == 1 else 'even' for i in range(10)]
+print(odd_even)
+# ['even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd']
+```
+
+## 文字列操作
+### join
+`デリミタ.join(リスト)`
+```python
+str_list = ['python', 'list', 'exchange']
+mojiretu = ','.join(str_list)
+print(mojiretu)
+```
+```
+python,list,exchange
+```
+
+#### 文字列をソートしてリストに入れる
+```python
+# ABC137より
+s = [''.join(sorted(input())) for _ in range(n)]
+```
