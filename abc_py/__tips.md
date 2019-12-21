@@ -94,3 +94,28 @@ python,list,exchange
 # ABC137より
 s = [''.join(sorted(input())) for _ in range(n)]
 ```
+
+## 最大順、最小順で要素を取り出す場合
+### priority que / heap que / 優先度キュー
+`heapq`を使用する。
+
+```python
+import heapq
+# リストxをヒープに変換
+heapq.heapify(x)
+# 最小の要素を取り出す（popする）
+heapq.heappop(x)
+# 値をpushする
+heapq.push(x)
+
+## 最大値を扱う場合は、マイナスする
+# 注意：マイナスのまま取り出した要素を計算すると、誤差が生じる（小数点以下の大小が逆転するとか）
+# 入力を受け取った時点でマイナスにする
+a = list(map(lambda x: -int(x),input().split()))
+heapq.heapify(a)
+# 計算する際は、取り出した要素を正の整数として計算すること。
+for _ in range(m):
+    tmp = (-heapq.heappop(a)) // 2
+    heapq.heappush(a, -tmp)
+print(-sum(a))
+```
