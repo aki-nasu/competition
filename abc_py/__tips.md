@@ -119,3 +119,7 @@ for _ in range(m):
     heapq.heappush(a, -tmp)
 print(-sum(a))
 ```
+
+## 数学的な言葉
+### 非負整数
+0を含む正の整数のこと
