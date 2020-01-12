@@ -23,11 +23,11 @@ ref:[C - Anti-Division](https://atcoder.jp/contests/abc131/tasks/abc131_c)
 
 ## リスト系
 ### カラの配列つくる
-p = []
+p = []  
 p.append()
 
-あるいは
-p = [0]*9
+あるいは  
+p = [0]*9  
 必要な分だけ0埋めする
 
 ### 配列をコピーする
