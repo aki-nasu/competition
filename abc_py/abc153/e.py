@@ -1,37 +1,17 @@
-# give up
 h,n = map(int,input().split())
-l = []
-for i in range(n):
-    a,b = map(int,input().split())
-    l.append((a,b,b/a))
-l = sorted(l,key=lambda l: l[0],reverse=True)
-l = sorted(l,key=lambda l: l[2])
-ans = 0
-atk = l[0][0]
-mp = l[0][1]
-print(l)
-while True:
-    if h >= atk:
-        h -= atk
-        ans += mp
-    else:
-        break
-atk_t = atk
-mp_t = 0
-for i in range(1,n):
-    if atk_t <= l[i][0]:
-        continue
-    if h <= l[i][0]:
-        mp_t = l[i][0]
-    r = h % l[i][0]
-    mp_t += (h // l[i][0]) * l[i][1]
-    if r == 0:
-        break
-    else:
-        atk_t = r
-if mp_t < mp:
-    ans += mp_t
-else:
-    ans += mp
-print(ans)
-        
+ab = [tuple(map(int,input().split())) for _ in range(n)]
+dp = [10**8] * (h+1)
+dp[0] = 0
+
+for i in range(1,h+1):
+    for a,b in ab:
+        if i >= a:
+            # HPより小さいとき、減らした後のHPに対して消費するMPを足す
+            atk = b + dp[i-a]
+            if atk < dp[i]:
+                dp[i] = atk
+        elif b < dp[i]:
+            # どの攻撃よりも小さいHPであれば、一番MP消費が少ない攻撃のMPを記録する
+            dp[i] = b
+# 配列の最後が、求めたいHP
+print(dp[-1])
