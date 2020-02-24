@@ -3,6 +3,8 @@
 ## ToC
 * 入出力
 * 文字、文字列
+* 順列
+* 配列
 
 ## 入出力
 ### 入力
@@ -43,8 +45,59 @@ for c in S :
 print(ans)
 ```
 
+## 順列
 
-## 順番を考慮しない2要素の選び方を全探索する
+### ビットパターン創出
+直積を求める
+```python
+import itertools
+n = 3
+status = [(0, 1) for _ in range(n)]
+list(itertools.product(*status))
+#[(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1), (1, 0, 0), (1, 0, 1), (1, 1, 0), (1, 1, 1)]
+```
+[参考](https://penguin-code.com/python-binary-combination/)
+
+## 配列（リスト）
+
+## numpy
+
+### 二次元配列
+```python
+import numpy as np
+# カラの二次元配列を作成（初期値n）
+column = 4
+row = 5
+n = 9
+dp = np.full((column,row),n) 
+```
+
+
+### 繰り返し二乗法
+
+### フェルマーの小定理
+#### Links
+- [フェルマーの小定理と使い方(Qiita)](https://qiita.com/drken/items/6b4031ccbb2cab7436f3)
+- [整数論テクニック集](http://kirika-comp.hatenablog.com/entry/2018/03/12/210446)
+- abc156-D
+### 逆元
+#### Links
+- [1000000007で割ったあまりの求め方を総特集（Qiita）](https://qiita.com/drken/items/3b4fdf0a78e7a138cd9a)
+- [整数論テクニック集](http://kirika-comp.hatenablog.com/entry/2018/03/12/210446)
+- abc156-D
+
+
+
+
+
+
+
+
+
+## 以下、未整理。
+
+
+### 順番を考慮しない2要素の選び方を全探索する
 内側のループ変数の始点を外側のループ変数 +1 から始めるといい。
 
 ```python
@@ -156,3 +209,8 @@ print(-sum(a))
 ## 数学的な言葉
 ### 非負整数
 0を含む正の整数のこと
+
+
+# task memo
+## スニペット
+- inputスニペットからintのみは削除。他、変数は変えられるようにする
