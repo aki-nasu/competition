@@ -1,7 +1,103 @@
 # Tips
 
+## ToC
+* 入出力
+* 文字、文字列
+* 順列
+* 配列
 
-## 順番を考慮しない2要素の選び方を全探索する
+## 入出力
+### 入力
+```python
+s = input()         # 入力内容を文字列として変数に詰める
+n = int(input())    # 入力内容を数値として変数に詰める
+
+# 入力内容を数値として、且つスペース区切りで別々の変数に詰める
+n,k = map(int,input().split())      # >>1 3 のような入力
+# 別々の変数ではなく、リストとして詰める
+l = list(map(int,input().split()))
+```
+
+### 出力
+```python
+print('output')     # オーソドックスな出力処理
+# 数値を出力する場合、str()で文字列にする
+print(str(3) + " " + str(6))    # 3 6 と出力される
+```
+
+## 文字、文字列
+
+### ASCIIコード
+
+* 文字、ASCIIコード間の変換
+```python
+ord('a')    #97
+chr(97)     #'a'
+```
+
+#### A to Z . N個ずらすと何になるか？系に使用する。
+```python
+for c in S :
+    a = ord(c) - ord('A')
+    a += N
+    a %= 26
+    ans += chr(ord('A') + a)
+print(ans)
+```
+
+## 順列
+
+### ビットパターン創出
+直積を求める
+```python
+import itertools
+n = 3
+status = [(0, 1) for _ in range(n)]
+list(itertools.product(*status))
+#[(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1), (1, 0, 0), (1, 0, 1), (1, 1, 0), (1, 1, 1)]
+```
+[参考](https://penguin-code.com/python-binary-combination/)
+
+## 配列（リスト）
+
+## numpy
+
+### 二次元配列
+```python
+import numpy as np
+# カラの二次元配列を作成（初期値n）
+column = 4
+row = 5
+n = 9
+dp = np.full((column,row),n) 
+```
+
+
+### 繰り返し二乗法
+
+### フェルマーの小定理
+#### Links
+- [フェルマーの小定理と使い方(Qiita)](https://qiita.com/drken/items/6b4031ccbb2cab7436f3)
+- [整数論テクニック集](http://kirika-comp.hatenablog.com/entry/2018/03/12/210446)
+- abc156-D
+### 逆元
+#### Links
+- [1000000007で割ったあまりの求め方を総特集（Qiita）](https://qiita.com/drken/items/3b4fdf0a78e7a138cd9a)
+- [整数論テクニック集](http://kirika-comp.hatenablog.com/entry/2018/03/12/210446)
+- abc156-D
+
+
+
+
+
+
+
+
+
+## 以下、未整理。
+
+
+### 順番を考慮しない2要素の選び方を全探索する
 内側のループ変数の始点を外側のループ変数 +1 から始めるといい。
 
 ```python
@@ -23,11 +119,11 @@ ref:[C - Anti-Division](https://atcoder.jp/contests/abc131/tasks/abc131_c)
 
 ## リスト系
 ### カラの配列つくる
-p = []
+p = []  
 p.append()
 
-あるいは
-p = [0]*9
+あるいは  
+p = [0]*9  
 必要な分だけ0埋めする
 
 ### 配列をコピーする
@@ -50,16 +146,6 @@ pow:累乗、math.sqrt
 4 // 3
 # 切り上げ
 -(-4 // 3)
-```
-
-文字をいい感じに回すときに使って。
-```python
-for c in S :
-    a = ord(c) - ord('A')
-    a += N
-    a %= 26
-    ans += chr(ord('A') + a)
-print(ans)
 ```
 
 ### リスト内包表記
@@ -123,3 +209,8 @@ print(-sum(a))
 ## 数学的な言葉
 ### 非負整数
 0を含む正の整数のこと
+
+
+# task memo
+## スニペット
+- inputスニペットからintのみは削除。他、変数は変えられるようにする
