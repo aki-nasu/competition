@@ -45,6 +45,16 @@ for c in S :
 print(ans)
 ```
 
+### 文字の反転
+```python
+s = 'abcde'
+s[::-1]
+print(s)
+# 'edcba'
+```
+
+
+
 ## 順列
 
 ### ビットパターン創出
@@ -59,6 +69,9 @@ list(itertools.product(*status))
 [参考](https://penguin-code.com/python-binary-combination/)
 
 ## 配列（リスト）
+
+## 配列の先頭に追加、削除をする場合、deque()を使用する
+
 
 ## numpy
 
