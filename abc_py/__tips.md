@@ -78,13 +78,24 @@ list(itertools.product(*status))
 ### 二次元配列
 ```python
 import numpy as np
-# カラの二次元配列を作成（初期値n）
-column = 4
-row = 5
-n = 9
-dp = np.full((column,row),n) 
+# カラの二次元配列を作成（初期値n, 行row, 列column）
+row = h
+column = w
+n = 0
+l = np.full((row,column),n) 
 ```
 
+### 文字列へ出力
+#### アスタリスク(`*`) でアンパック
+
+```python
+my_list = [1, 2, 3]
+print(*my_list)
+# 出力
+# 1 2 3
+```
+
+参考： https://qiita.com/LouiS0616/items/1bbe0a9bb93054f6c380
 
 ### 繰り返し二乗法
 
